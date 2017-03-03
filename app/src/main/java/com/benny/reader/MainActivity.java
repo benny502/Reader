@@ -40,10 +40,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         fab = (FloatingActionButton) findViewById(R.id.fabBtn);
         setSupportActionBar(toolbar);
-        toolbar.setTitle(getString(R.string.app_name));
+        //toolbar.setTitle(getString(R.string.app_name));
 
 
-        TextDrawable icon = TextDrawable.builder().beginConfig().useFont(iconTypeface).fontSize(60).endConfig().buildRound(getResources().getString(R.string.zmdi_plus), getResources().getColor(R.color.colorAccent));
+        TextDrawable icon = TextDrawable.builder().beginConfig().useFont(iconTypeface).fontSize(60).endConfig().buildRound(getResources().getString(R.string.zmdi_plus), Color.TRANSPARENT);
         fab.setImageDrawable(icon);
         fab.setOnClickListener(this);
     }

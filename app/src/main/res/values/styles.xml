@@ -10,4 +10,17 @@
         <item name="windowActionBar">false</item>
     </style>
 
+    <!-- toolbar标题样式 -->
+    <style name="ToolbarTitle" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+
+    </style>
+
+    <!-- toolbar菜单样式 -->
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
+
 </resources>

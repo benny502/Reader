@@ -1,9 +1,11 @@
 package com.benny.reader;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 
+import android.net.Uri;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +15,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.amulyakhare.textdrawable.TextDrawable;
+
+import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -40,7 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         fab = (FloatingActionButton) findViewById(R.id.fabBtn);
         setSupportActionBar(toolbar);
-        //toolbar.setTitle(getString(R.string.app_name));
+//        getSupportActionBar().setTitle(getString(R.string.app_name));
+//        getSupportActionBar().set
 
 
         TextDrawable icon = TextDrawable.builder().beginConfig().useFont(iconTypeface).fontSize(60).endConfig().buildRound(getResources().getString(R.string.zmdi_plus), Color.TRANSPARENT);
@@ -60,4 +65,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Snackbar.make(v, "Please install a File Manager.", Snackbar.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            if(resultCode == Activity.RESULT_OK){
+                Uri uri = data.getData();
+                String path = FileUtils.getPath(MainActivity.this, uri);
+                try {
+                    ZipHelper.ZipDecode(MainActivity.this, path);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+    }
 }
+

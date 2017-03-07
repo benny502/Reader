@@ -11,16 +11,19 @@
         android:layout_height="match_parent">
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="65dp">
+            android:layout_height="75dp"
+            android:theme="@style/ToolbarTheme">
             <android.support.design.widget.CollapsingToolbarLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_margin="0dp">
                 <android.support.v7.widget.Toolbar
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
+                    android:layout_gravity="center"
                     android:id="@+id/toolbar"
                     android:background="?attr/colorPrimary"
-                    app:theme="@style/ToolbarTheme"
+                    app:theme="@style/ToolbarTitle"
                     ></android.support.v7.widget.Toolbar>
             </android.support.design.widget.CollapsingToolbarLayout>
         </android.support.design.widget.AppBarLayout>
